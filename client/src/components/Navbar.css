@@ -1,60 +1,127 @@
- /* Navbar.css - Unique and professional styling */
-
- .custom-navbar {
+/* ===== NAVBAR CONTAINER ===== */
+.custom-navbar {
+    height: 70px;
+    padding: 0 40px;
+  
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #1e1e2f; /* dark professional background */
-    padding: 12px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Raleway', sans-serif;
+    justify-content: space-between;
+  
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+  
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    font-family: "Raleway", sans-serif;
   }
   
+  
+  /* ===== LINKS CONTAINER ===== */
   .navbar-links {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
   }
   
+  
+  /* ===== NAV LINKS ===== */
   .navbar-links a {
-    color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
+    color: #444;
+    font-size: 16px;
+    font-weight: 600;
+  
     position: relative;
-    transition: color 0.3s ease;
+    padding: 6px 0;
+  
+    transition: all 0.3s ease;
   }
   
-  .navbar-links a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: #ff7e5f; /* accent color underline */
-    transition: width 0.3s ease;
-  }
   
+  /* Hover Color */
   .navbar-links a:hover {
-    color: #ff7e5f; /* accent hover color */
+    color: #ff7a18;
+    transform: translateY(-2px);
+  }
+  
+  
+  /* Animated underline */
+  .navbar-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+  
+    width: 0%;
+    height: 3px;
+  
+    background: linear-gradient(90deg,#ff7a18,#ffb347);
+  
+    border-radius: 20px;
+  
+    transition: width 0.3s ease;
   }
   
   .navbar-links a:hover::after {
     width: 100%;
   }
   
+  
+  /* ===== LOGOUT BUTTON ===== */
   .navbar-logout-btn {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    padding: 10px 22px;
     border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
-    color: #fff;
+    border-radius: 30px;
+  
+    font-size: 14px;
     font-weight: 600;
+  
+    background: linear-gradient(135deg,#ff7a18,#ffb347);
+    color: white;
+  
     cursor: pointer;
+  
     transition: all 0.3s ease;
   }
   
+  
+  /* Button hover animation */
   .navbar-logout-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,122,24,0.35);
+  }
+  
+  
+  /* Click effect */
+  .navbar-logout-btn:active {
+    transform: scale(0.95);
+  }
+  
+  
+  /* ===== RESPONSIVE ===== */
+  
+  @media (max-width: 768px) {
+  
+    .custom-navbar{
+      padding: 0 20px;
+    }
+  
+    .navbar-links{
+      gap: 15px;
+    }
+  
+    .navbar-links a{
+      font-size: 14px;
+    }
+  
+    .navbar-logout-btn{
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  
   }

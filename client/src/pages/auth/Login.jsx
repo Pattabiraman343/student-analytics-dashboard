@@ -25,31 +25,37 @@ function Login() {
   return (
     <div className="login-page-container">
 
-      <div className="login-card">
-        <h2>Login</h2>
+  <div className="login-wrapper">
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="login-input"
-        />
+    <div className="login-image"></div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="login-input"
-        />
+    <div className="login-card">
+      <h2>Login</h2>
 
-        <button className="login-btn" onClick={login}>
-          Login
-        </button>
-      </div>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="login-input"
+      />
 
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="login-input"
+      />
+
+      <button className="login-btn" onClick={login}>
+        Login
+      </button>
     </div>
+
+  </div>
+
+</div>
   );
 }
 

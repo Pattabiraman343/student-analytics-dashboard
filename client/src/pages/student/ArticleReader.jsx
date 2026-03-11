@@ -44,6 +44,7 @@ function ArticleReader() {
   return (
     <div className="article-reader-container">
       <Navbar />
+      <div style={{textAlign:'center'}}>
       <h1>{article.title}</h1>
       {/* Add onMouseUp to capture selected text */}
       <div onMouseUp={handleTextSelect}>
@@ -51,10 +52,8 @@ function ArticleReader() {
           <p key={i}>{c.content}</p>
         ))}
       </div>
-
       {selectedText && (
-        <div style={{ marginTop: "20px", border: "1px solid #ccc", padding: "10px" }}>
-          <p><strong>Selected Text:</strong> {selectedText}</p>
+        <div className="highlight-box">          <p><strong>Selected Text:</strong> {selectedText}</p>
           <textarea 
             value={note} 
             onChange={e => setNote(e.target.value)} 
@@ -65,6 +64,7 @@ function ArticleReader() {
           <button onClick={saveHighlight} style={{ marginTop: "10px" }}>Save Highlight</button>
         </div>
       )}
+    </div>
     </div>
   );
 }

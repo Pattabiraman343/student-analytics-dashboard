@@ -1,78 +1,155 @@
-/* Register.css - professional, modern, unique */
+/* ===== PAGE CONTAINER ===== */
 
 .register-page-container {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-    font-family: 'Raleway', sans-serif;
+    justify-content: center;
+  
+    background: linear-gradient(135deg,#eef2ff,#f8fbff);
+    padding: 20px;
   }
+  
+  
+  /* ===== SPLIT LAYOUT ===== */
+  
+  .register-wrapper {
+    width: 100%;
+    max-width: 1000px;
+  
+    display: flex;
+    border-radius: 20px;
+  
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  
+    background: white;
+  }
+  
+  
+  /* ===== LEFT IMAGE ===== */
+  
+  .register-image {
+    flex: 1;
+  
+    background: url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b")
+    center/cover no-repeat;
+  
+    position: relative;
+  }
+  
+  /* overlay */
+  
+  .register-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+  }
+  
+  
+  /* ===== FORM CARD ===== */
   
   .register-card {
-    background: #ffffff;
-    padding: 45px 35px;
-    border-radius: 16px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-    width: 360px;
+    flex: 1;
+    padding: 60px 50px;
+  
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+  
+    animation: slideIn 0.6s ease;
   }
   
-  .register-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
+  
+  /* animation */
+  
+  @keyframes slideIn {
+    from{
+      transform: translateX(40px);
+      opacity:0;
+    }
+    to{
+      transform: translateX(0);
+      opacity:1;
+    }
   }
+  
+  
+  /* ===== TITLE ===== */
   
   .register-card h2 {
+    font-size: 32px;
     margin-bottom: 30px;
-    color: #333333;
-    font-weight: 700;
-    font-size: 1.8rem;
+    color: #222;
   }
+  
+  
+  /* ===== INPUTS ===== */
   
   .register-input,
   .register-select {
+  
     width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 20px;
+    padding: 12px 14px;
+  
+    margin-bottom: 16px;
+  
     border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+  
+    font-size: 15px;
+  
+    transition: 0.3s;
   }
   
   .register-input:focus,
-  .register-select:focus {
+  .register-select:focus{
     outline: none;
-    border-color: #ff7e5f;
-    box-shadow: 0 0 10px rgba(255, 126, 95, 0.4);
+    border-color: #4facfe;
+    box-shadow: 0 0 8px rgba(79,172,254,0.3);
   }
   
-  .register-select {
-    background-color: #fff;
-    cursor: pointer;
-  }
   
-  /* Button Styling */
+  /* ===== BUTTON ===== */
+  
   .register-btn {
-    width: 100%;
-    padding: 12px 0;
+    padding: 12px;
+  
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: #fff;
-    font-size: 1rem;
+    border-radius: 30px;
+  
+    font-size: 16px;
     font-weight: 600;
+  
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    color: white;
+  
     cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    transition: all 0.3s ease;
+  
+    transition: 0.3s;
   }
   
   .register-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 22px rgba(255, 126, 95, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,242,254,0.4);
+  }
+  
+  
+  /* ===== RESPONSIVE ===== */
+  
+  @media (max-width:850px){
+  
+  .register-wrapper{
+    flex-direction: column;
+  }
+  
+  .register-image{
+    height: 200px;
+  }
+  
+  .register-card{
+    padding:40px 25px;
+  }
+  
   }

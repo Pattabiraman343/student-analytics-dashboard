@@ -21,9 +21,15 @@ function Register() {
 
   return (
     <div className="register-page-container">
-      <div className="register-card">
-        <h2>Register</h2>
 
+    <div className="register-wrapper">
+  
+      <div className="register-image"></div>
+  
+      <div className="register-card">
+  
+        <h2>Register</h2>
+  
         <input
           type="text"
           placeholder="Name"
@@ -31,7 +37,7 @@ function Register() {
           onChange={(e) => setName(e.target.value)}
           className="register-input"
         />
-
+  
         <input
           type="email"
           placeholder="Email"
@@ -39,7 +45,7 @@ function Register() {
           onChange={(e) => setEmail(e.target.value)}
           className="register-input"
         />
-
+  
         <input
           type="password"
           placeholder="Password"
@@ -47,7 +53,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           className="register-input"
         />
-
+  
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
@@ -56,12 +62,16 @@ function Register() {
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
-
+  
         <button className="register-btn" onClick={register}>
           Register
         </button>
+  
       </div>
+  
     </div>
+  
+  </div>
   );
 }
 
