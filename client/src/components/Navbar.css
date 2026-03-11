@@ -1,0 +1,60 @@
+ /* Navbar.css - Unique and professional styling */
+
+ .custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e2f; /* dark professional background */
+    padding: 12px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #ff7e5f; /* accent color underline */
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-links a:hover {
+    color: #ff7e5f; /* accent hover color */
+  }
+  
+  .navbar-links a:hover::after {
+    width: 100%;
+  }
+  
+  .navbar-logout-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-logout-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.5);
+  }

@@ -1,0 +1,89 @@
+/* ArticleReader.css - professional and modern */
+
+.article-reader-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 25px;
+    font-family: 'Raleway', sans-serif;
+    background: #fefefe;
+    min-height: 100vh;
+  }
+  
+  .article-reader-container h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .article-reader-container h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #ff7e5f; /* accent underline */
+    margin: 8px auto 0 auto;
+    border-radius: 2px;
+  }
+  
+  .article-reader-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .article-reader-content p:hover {
+    background: rgba(255, 126, 95, 0.05); /* subtle hover highlight */
+  }
+  
+  .highlight-container {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #fff7f2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .highlight-container p {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  
+  .highlight-container textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    resize: vertical;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .highlight-container textarea:focus {
+    outline: none;
+    border-color: #ff7e5f;
+    box-shadow: 0 0 8px rgba(255, 126, 95, 0.4);
+  }
+  
+  .highlight-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .highlight-container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 126, 95, 0.5);
+  }

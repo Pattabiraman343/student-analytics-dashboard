@@ -1,0 +1,55 @@
+/* ArticlesList.css - professional and modern */
+
+.articles-list-container {
+    min-height: 100vh;
+    background: #f5f6fa; /* light clean background */
+    font-family: 'Raleway', sans-serif;
+    padding: 20px 0;
+  }
+  
+  .articles-list-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .articles-list-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .articles-list-content h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ff7e5f; /* accent color underline */
+    margin: 8px auto 0 auto;
+    border-radius: 2px;
+  }
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Optional: add subtle animation for cards when they appear */
+  .articles-grid .article-card-wrapper {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.5s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
