@@ -3,14 +3,13 @@ import Article from "../models/Articles.js";
 import mongoose from "mongoose";
 
 export const getAnalyticsService = async (teacherId) => {
-  if (!teacherId || !mongoose.Types.ObjectId.isValid(teacherId)) {
-    throw new Error("Invalid teacher ID");
-  }
+  // For now, skip teacherId filtering to include all existing Analytics
+  // Later, you can filter by teacherId when createdBy is correctly set in articles
 
-  // ⚡ Corrected usage
-  const tId = new mongoose.Types.ObjectId(teacherId);
+  // Articles created
+  const articlesCreated = await Article.countDocuments(); // remove createdBy filter
 
-  // rest of your aggregation code stays the same
+  // Article Views
   const articleViews = await Analytics.aggregate([
     { $match: { articleId: { $exists: true } } },
     {
@@ -19,21 +18,20 @@ export const getAnalyticsService = async (teacherId) => {
         localField: "articleId",
         foreignField: "_id",
         as: "article",
-      }
+      },
     },
     { $unwind: "$article" },
-    { $match: { "article.createdBy": tId } },
     {
       $group: {
         _id: "$article._id",
         title: { $first: "$article.title" },
-        totalViews: { $sum: 1 }
-      }
+        totalViews: { $sum: "$views" }, // sum views field
+      },
     },
-    { $sort: { totalViews: -1 } }
+    { $sort: { totalViews: -1 } },
   ]);
 
-  // ...continue with mostViewedCategories, studentProgress, dailyEngagement
+  // Top 3 categories
   const mostViewedCategories = await Analytics.aggregate([
     { $match: { articleId: { $exists: true } } },
     {
@@ -42,64 +40,43 @@ export const getAnalyticsService = async (teacherId) => {
         localField: "articleId",
         foreignField: "_id",
         as: "article",
-      }
+      },
     },
     { $unwind: "$article" },
-    { $match: { "article.createdBy": tId } },
     {
       $group: {
         _id: "$article.category",
-        totalViews: { $sum: 1 }
-      }
+        totalViews: { $sum: "$views" },
+      },
     },
     { $sort: { totalViews: -1 } },
-    { $limit: 3 }
+    { $limit: 3 },
   ]);
 
+  // Student Progress
   const studentProgress = await Analytics.aggregate([
-    { $match: { articleId: { $exists: true } } },
-    {
-      $lookup: {
-        from: "articles",
-        localField: "articleId",
-        foreignField: "_id",
-        as: "article"
-      }
-    },
-    { $unwind: "$article" },
-    { $match: { "article.createdBy": tId } },
+    { $match: { studentId: { $exists: true }, articleId: { $exists: true } } },
     {
       $group: {
         _id: "$studentId",
         articlesRead: { $sum: 1 },
-        totalDuration: { $sum: "$duration" }
-      }
-    }
+        totalDuration: { $sum: "$duration" },
+      },
+    },
   ]);
 
+  // Daily Engagement
   const dailyEngagement = await Analytics.aggregate([
-    { $match: { articleId: { $exists: true } } },
-    {
-      $lookup: {
-        from: "articles",
-        localField: "articleId",
-        foreignField: "_id",
-        as: "article"
-      }
-    },
-    { $unwind: "$article" },
-    { $match: { "article.createdBy": tId } },
     {
       $group: {
         _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
-        totalViews: { $sum: 1 },
-        totalDuration: { $sum: "$duration" }
-      }
+        totalViews: { $sum: "$views" },
+        totalDuration: { $sum: "$duration" },
+      },
     },
-    { $sort: { _id: 1 } }
+    { $sort: { _id: 1 } },
   ]);
 
-  const articlesCreated = await Article.countDocuments({ createdBy: tId });
   const totalStudentsRead = studentProgress.length;
 
   return {
@@ -108,6 +85,6 @@ export const getAnalyticsService = async (teacherId) => {
     articleViews,
     mostViewedCategories,
     studentProgress,
-    dailyEngagement
+    dailyEngagement,
   };
 };
