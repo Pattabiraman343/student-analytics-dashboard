@@ -152,8 +152,8 @@ function StudentDashboard() {
                     <td>{h.articleTitle || "Unknown Article"}</td>
                     <td>{h.text}</td>
                     <td>{h.note}</td>
-                    <td>{new Date(h.createdAt).toLocaleString()}</td>
-                  </tr>
+                    <td>{new Date(h.timestamp).toLocaleString()}</td>
+                                      </tr>
                 ))}
               </tbody>
             </table>
