@@ -1,0 +1,142 @@
+/* StudentDashboard.css - Professional & Modern */
+
+.student-dashboard-container {
+    min-height: 100vh;
+    background: #f5f7fa;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px 0;
+  }
+  
+  .student-dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .student-dashboard-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+  }
+  
+  .dashboard-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    flex: 1 1 200px;
+    max-width: 250px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff7e5f;
+  }
+  
+  .charts-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .chart-container {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    flex: 1 1 350px;
+    min-width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .chart-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+  
+  .chart-container h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222;
+  }
+  
+  /* Highlights Table */
+  .highlights-container {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  .highlights-container h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  .highlights-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .highlights-table th,
+  .highlights-table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+  }
+  
+  .highlights-table th {
+    background: #f7f9fc;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .highlights-table tbody tr:hover {
+    background: #fff2f0; /* subtle highlight for hover */
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .charts-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
