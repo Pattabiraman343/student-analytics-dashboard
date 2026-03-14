@@ -12,5 +12,5 @@ enum: ["teacher","student"]
 },
 {timestamps:true}
 );
-
+//model
 export default mongoose.model("User", userSchema);
