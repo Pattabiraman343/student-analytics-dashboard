@@ -1,0 +1,125 @@
+/* ===== CARD WRAPPER ===== */
+
+.article-card-wrapper {
+    background: linear-gradient(135deg,#ffffff,#f9fbff);
+    border-radius: 16px;
+  
+    padding: 24px;
+    min-height: 170px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    border: 1px solid rgba(0,0,0,0.06);
+  
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  
+    transition: all 0.35s ease;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  /* glow effect line */
+  .article-card-wrapper::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:4px;
+  
+    background:linear-gradient(90deg,#4facfe,#00f2fe);
+    transition:0.5s;
+  }
+  
+  .article-card-wrapper:hover::before{
+    left:0;
+  }
+  
+  
+  /* hover animation */
+  .article-card-wrapper:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  }
+  
+  
+  /* ===== TITLE ===== */
+  
+  .article-card-title{
+    font-size:20px;
+    font-weight:700;
+    color:#222;
+  
+    margin-bottom:10px;
+    line-height:1.3;
+  }
+  
+  
+  /* ===== CATEGORY ===== */
+  
+  .article-card-category{
+    font-size:13px;
+    font-weight:600;
+  
+    width:fit-content;
+  
+    padding:6px 12px;
+    border-radius:20px;
+  
+    background:#eef3ff;
+    color:#4a63e7;
+  
+    margin-bottom:18px;
+  }
+  
+  
+  /* ===== BUTTON ===== */
+  
+  .article-card-btn{
+    padding:10px 18px;
+  
+    border:none;
+    border-radius:25px;
+  
+    font-size:14px;
+    font-weight:600;
+  
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:white;
+  
+    cursor:pointer;
+  
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* button hover */
+  .article-card-btn:hover{
+    transform: translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,242,254,0.4);
+  }
+  
+  
+  /* click effect */
+  .article-card-btn:active{
+    transform: scale(0.95);
+  }
+  
+  
+  /* ===== RESPONSIVE ===== */
+  
+  @media (max-width:768px){
+  
+    .article-card-wrapper{
+      padding:20px;
+    }
+  
+    .article-card-title{
+      font-size:18px;
+    }
+  
+  }
