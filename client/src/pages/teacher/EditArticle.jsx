@@ -19,7 +19,7 @@ function EditArticle() {
   // ==========================
   useEffect(() => {
     loadArticle();
-  }, []);
+  }, [loadArticle]);
 
   const loadArticle = async () => {
     try {
